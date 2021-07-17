@@ -1,0 +1,76 @@
+<mat-card>
+    <mat-card class="child-1">
+        <h2>Analytics Dashboard</h2>
+    </mat-card>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card">
+            <mat-card-header fxLayout.gt-xs="row" fxLayout.xs="column">
+                <mat-card-title style="color: black;">Upcoming</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="circle">{{upcomingCount}}</div>
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+        <mat-card class="card">
+            <mat-card-header fxLayout.gt-xs="row" fxLayout.xs="column">
+                <mat-card-title style="color: black;">Past</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="circle">{{pastCount}}</div>
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+        <mat-card class="card">
+            <mat-card-header fxLayout.gt-xs="row" fxLayout.xs="column">
+                <mat-card-title style="color: black;">Total</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="circle">{{upcomingCount + pastCount}}</div>
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+    </div>
+   
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="child-1">
+            <google-chart #chart [title]="title" [type]="type" [data]="data" [columnNames]="columnNames"
+                [options]="options" [width]="width" [height]="height">
+            </google-chart>
+        </mat-card>
+        <mat-card class="child-2">
+            <div class="example-container mat-elevation-z8">
+                <table mat-table [dataSource]="allLaunches" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="mission_name">
+                        <th mat-header-cell *matHeaderCellDef> mission_name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.mission_name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="launch_date_utc">
+                        <th mat-header-cell *matHeaderCellDef> launch_date_utc </th>
+                        <td mat-cell *matCellDef="let element"> {{element.launch_date_utc}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="launch_year">
+                        <th mat-header-cell *matHeaderCellDef> launch_year </th>
+                        <td mat-cell *matCellDef="let element"> {{element.launch_year}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="details">
+                        <th mat-header-cell *matHeaderCellDef> details </th>
+                        <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="child-1">
+            <google-chart #chart [title]="titleMap" [type]="typeMap" [data]="dataMap" [columnNames]="columnNamesMap"
+            [options]="optionsMap" [width]="widthMap" [height]="heightMap">
+        </google-chart>
+        </mat-card>
+    </div>
+</mat-card>

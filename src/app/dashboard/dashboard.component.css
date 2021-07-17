@@ -1,0 +1,35 @@
+.card {
+    width: 23%;
+    margin-bottom: 2%;
+    background-color:antiquewhite;
+  }
+
+  .circle {
+    width: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    border: 3px solid #000;
+    background-color: coral;
+    font-weight: bold;
+  }
+  
+  .example-container {
+    height: 400px;
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  td.mat-cell, th.mat-header-cell {
+    padding: 30px;
+    /* border-bottom: 2px solid #ffa600;
+    border-top: 2px solid #ffa600; */
+    border: 2px solid #ffa600;
+   }
+
+   th.mat-header-cell {
+       font-weight: bold;
+       color: white;
+       font-size: medium;
+   }
